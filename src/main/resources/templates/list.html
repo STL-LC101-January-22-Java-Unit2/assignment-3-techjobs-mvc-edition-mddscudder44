@@ -20,9 +20,22 @@
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
                    <!-- if(jobs.column = all).....try that ternary  -->
+              <!--  <td>
+                    <li><a href="/list/jobs/column=all">View All</a></li>
+                </td>  Feel free to remove or modify this element if necessary.
+                -->
+              <!--  <td>
+                    <li th:if = "${column.equals('all')}">
+                        <a th:href = "@/list/jobs">View All</a>
+                    </li>
+                </td>
+                -->
+
                 <td>
                     <li><a href="/list/jobs?column=all">View All</a></li>
-                </td> <!-- Feel free to remove or modify this element if necessary. -->
+                </td>
+
+
 
                 <td th:each="category : ${tableChoices}">
                     <ul>
