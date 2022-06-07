@@ -38,6 +38,17 @@
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
+    <table th:each="job : ${jobs}" class="job-listing">
+        <tr>
+            <th>ID</th>
+            <td th:text="${job.getId()}"></td>
+        </tr>
+
+        <tr>
+
+        </tr>
+    </table>
+
 </div>
 
 </body>

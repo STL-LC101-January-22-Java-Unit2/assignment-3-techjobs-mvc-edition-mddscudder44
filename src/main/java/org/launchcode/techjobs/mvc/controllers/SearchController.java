@@ -36,18 +36,23 @@ public class SearchController {
     // specifying the type of search **(searchType)** and the search term **(searchTerm)**
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         // In either case, store the results in a jobs ArrayList
-        ArrayList<Job> jobs;
+        ArrayList<Job> jobs = new ArrayList<>();
 
         //If the user enters “all” in the search box, or if they leave the box empty,
         // call the findAll()method from JobData
         if(searchTerm.equals("all") || searchTerm.equals("")) {
             jobs = JobData.findAll();
+            model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
 
         //Otherwise, send the search information to findByColumnAndValue
 
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
-            
+            model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
+
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("columns", columnChoices);
+        return "search";
         }
 
 
